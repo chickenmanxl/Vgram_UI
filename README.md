@@ -1,11 +1,14 @@
 # vgrampy
 
 ### Author: Caleb Nejely ( Adapted from Noel Lefevre (Adapted from Steven Ramsey's LDNH README.md)))
-### Date: January 29, 2024
+### Date: July 1, 2024
 
-# Options for `groupvg2.py`:
+# Running Packaged Vgram Program
 
-### There are default parameters applied to the code, but you can change them if needed
+
+# Options for `Vgram`:
+
+### There are default parameters applied, but you can change them if needed
 
 - **Log-Transformation**: log-transform or not (default = log)
 - **Peak Feature**: peak curvature, height or area (default = peak curvature)
@@ -13,7 +16,7 @@
 - **Stiffness Parameter**: how strictly the spline passes through the data points (default = 0)
 - **Window Width**: voltage width to window out when making the spline (default = 0.15)
 
-# Plotting In `groupvg2.py`:
+# Plotting In `Vgram`:
 
 #### You can choose whether or not to plot, and whether to separate those plots by concentration
 #### The plots saved will be the smoothed and detilted voltammograms, more options are in `plotseparate.py`
