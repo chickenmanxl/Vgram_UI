@@ -1,5 +1,4 @@
 # -*- mode: python ; coding: utf-8 -*-
-from PyInstaller.utils.win32.versioninfo import VSVersionInfo
 
 a = Analysis(
     ['UI.py'],
