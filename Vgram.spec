@@ -23,7 +23,7 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name='Vgram',
+    name='Vgram UI',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -34,7 +34,7 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon='icon.ico'
+    icon='icon.ico',
 )
 coll = COLLECT(
     exe,
@@ -43,5 +43,12 @@ coll = COLLECT(
     strip=False,
     upx=True,
     upx_exclude=[],
-    name='Vgram',
+    name='Vgram UI',
+)
+
+app = BUNDLE(
+    coll,
+    name='Vgram UI',
+    icon=icon_path,
+    onefile=True  # Enable onefile mode
 )

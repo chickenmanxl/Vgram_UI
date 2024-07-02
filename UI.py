@@ -16,7 +16,7 @@ class App(ctk.CTk):
 
         # configure window
         self.title("Vgram Analysis")
-        self.geometry("405x520")
+        self.geometry("430x520")
         self.resizable(False, False)
 
         # Override the window close event
@@ -39,13 +39,13 @@ class App(ctk.CTk):
         self.plot_cb = ctk.CTkCheckBox(master=self.cb_frame, text="Plot Data", command=self.toggle_sep_plot, variable=self.plot_cb_var, onvalue=True, offvalue=False)
         self.plot_cb.grid(row=0, column=0, pady=(20, 10), padx=20, sticky="nw")
         self.sep_plot_cb_var = ctk.BooleanVar()
-        self.sep_plot_cb = ctk.CTkCheckBox(master=self.cb_frame, text="Seperate Concentration", variable=self.sep_plot_cb_var, onvalue=True, offvalue=False)
+        self.sep_plot_cb = ctk.CTkCheckBox(master=self.cb_frame, text="Separate Concentrations", variable=self.sep_plot_cb_var, onvalue=True, offvalue=False)
         self.sep_plot_cb.grid(row=1, column=0, pady=10, padx=20, sticky="nw")
         self.tran_cb_var = ctk.BooleanVar()
         self.tran_cb = ctk.CTkCheckBox(master=self.cb_frame, text="Transform Data", variable=self.tran_cb_var, onvalue=True, offvalue=False)
         self.tran_cb.grid(row=0, column=1, pady=(20, 10), padx=20, sticky="n")
         self.sep_sheet_cb_var = ctk.BooleanVar()
-        self.sep_sheet_cb = ctk.CTkCheckBox(master=self.cb_frame, text="Seperate Sheets", variable=self.sep_sheet_cb_var, onvalue=True, offvalue=False)
+        self.sep_sheet_cb = ctk.CTkCheckBox(master=self.cb_frame, text="Separate Conditions", variable=self.sep_sheet_cb_var, onvalue=True, offvalue=False)
         self.sep_sheet_cb.grid(row=1, column=1, pady=10, padx=20, sticky="n")
 
         # Label for spacing
@@ -56,7 +56,7 @@ class App(ctk.CTk):
         self.ob_frame = ctk.CTkFrame(self)
         self.ob_frame.grid(row=2, column=0, columnspan=2, padx=(20, 20), pady=(10, 20), sticky="nsew")
         self.ob1_label = ctk.CTkLabel(master=self.ob_frame, text="Do log input?")
-        self.ob1_label.grid(row=0, column=0, padx=10, pady=(5, 0), sticky="sw")
+        self.ob1_label.grid(row=0, column=0, padx=(10, 140), pady=(5, 0), sticky="sw")
         self.ob1 = ctk.CTkComboBox(master=self.ob_frame, values=["Yes", "No"])
         self.ob1.grid(row=1, column=0, pady=(0,5), padx=(10, 48), sticky="nw")
         self.ob2_label = ctk.CTkLabel(master=self.ob_frame, text="Peak Feature")
@@ -65,17 +65,17 @@ class App(ctk.CTk):
         self.ob2.grid(row=3, column=0, pady=(0,5), padx=(10, 48), sticky="nw")
         
         self.ti1_label = ctk.CTkLabel(master=self.ob_frame, text="Smoothing")
-        self.ti1_label.grid(row=0, column=1, padx=10, pady=(5, 0), sticky="se")
+        self.ti1_label.grid(row=0, column=1, padx=(10, 10), pady=(5, 0), sticky="se")
         self.smooth_input = ctk.CTkEntry(master=self.ob_frame, placeholder_text="Text input")
-        self.smooth_input.grid(row=1, column=1, pady=(0,5), padx=10, sticky="ne")
+        self.smooth_input.grid(row=1, column=1, pady=(0,5), padx=(10, 10), sticky="ne")
         self.ti2_label = ctk.CTkLabel(master=self.ob_frame, text="Stiffness")
-        self.ti2_label.grid(row=2, column=1, padx=10, pady=(0), sticky="se")
+        self.ti2_label.grid(row=2, column=1, padx=(10, 10), pady=(0), sticky="se")
         self.stiff_input = ctk.CTkEntry(master=self.ob_frame, placeholder_text="Text input")
-        self.stiff_input.grid(row=3, column=1, pady=(0,5), padx=10, sticky="ne")
+        self.stiff_input.grid(row=3, column=1, pady=(0,5), padx=(10, 10), sticky="ne")
         self.ti3_label = ctk.CTkLabel(master=self.ob_frame, text="Vwidth")
-        self.ti3_label.grid(row=4, column=1, padx=10, pady=(0), sticky="se")
+        self.ti3_label.grid(row=4, column=1, padx=(10, 10), pady=(0), sticky="se")
         self.vwidth_input = ctk.CTkEntry(master=self.ob_frame, placeholder_text="Text input")
-        self.vwidth_input.grid(row=5, column=1, pady=(0,10), padx=10, sticky="ne")
+        self.vwidth_input.grid(row=5, column=1, pady=(0,10), padx=(10, 10), sticky="ne")
 
         #self.op_frame = ctk.CTkFrame(self)
         #self.op_frame.grid(row=2, column=1, columnspan=2, padx=(10, 20), pady=(10, 20), sticky="nsew")
