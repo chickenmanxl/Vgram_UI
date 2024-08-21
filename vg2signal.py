@@ -15,14 +15,14 @@ get_num_header_lines
 """
 
 
-def get_num_header_lines(file_obj: typing.TextIO) -> int:
+def get_num_header_lines(file_obj: typing.TextIO, start_voltage:str) -> int:
     line_ctr = 0
     ret_ctr = None
     omit_start = None
     omit_end = None
     for line in file_obj:
         line_ctr += 1
-        if line.startswith("0.852"):
+        if line.startswith(start_voltage):
             omit_end = line_ctr
     file_obj.seek(0)
     return omit_end
@@ -35,9 +35,9 @@ read_raw_vg_as_df
 """
 
 
-def read_raw_vg_as_df(filename: str) -> pandas.DataFrame:
+def read_raw_vg_as_df(filename: str, start_voltage:str) -> pandas.DataFrame:
     with open(filename, "r") as input_file:
-        omit_e = get_num_header_lines(input_file)
+        omit_e = get_num_header_lines(input_file, start_voltage)
         # a single chain of method calls can produce the desired
         # two-column dataframe, with negative current in the "I"
         # column and with the voltage in the "V" column
@@ -191,9 +191,10 @@ def v2signal(vg_filename: str,
              peak_feat: int,
              smoothing_bw: float,
              vwidth: float,
-             stiffness: float):
+             stiffness: float,
+             v_start: str):
 
-    vg_df = read_raw_vg_as_df(vg_filename)
+    vg_df = read_raw_vg_as_df(vg_filename, v_start)
 
     if do_log:
         cur_var_name = "logI"
