@@ -192,7 +192,9 @@ def v2signal(vg_filename: str,
              smoothing_bw: float,
              vwidth: float,
              stiffness: float,
-             v_start: str):
+             v_start: str,
+             pv_min: float,
+             pv_max: float):
 
     vg_df = read_raw_vg_as_df(vg_filename, v_start)
 
@@ -206,7 +208,7 @@ def v2signal(vg_filename: str,
 
     vg_df["smoothed"] = smoother(vg_df["V"], vg_df[cur_var_name].to_numpy())
 
-    shoulder_getter = make_shoulder_getter(1, 1.1)  # 1-1.1V is approx peak location
+    shoulder_getter = make_shoulder_getter(pv_min, pv_max)  # 1-1.1V is approx peak location
     (peak_signal, peak_v_shoulder) = shoulder_getter(vg_df["V"],
                                                      vg_df["smoothed"])
 

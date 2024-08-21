@@ -84,6 +84,10 @@ class App(ctk.CTk):
         self.ti3_label.grid(row=4, column=1, padx=(10, 10), pady=(0), sticky="se")
         self.vwidth_input = ctk.CTkEntry(master=self.ob_frame, placeholder_text="Text input")
         self.vwidth_input.grid(row=5, column=1, pady=(0,10), padx=(10, 10), sticky="ne")
+        self.pvr_label = ctk.CTkLabel(master=self.ob_frame, text="Peak Voltage Range")
+        self.pvr_label.grid(row=6, column=1, padx=(10, 10), pady=(5, 0), sticky="se")
+        self.pvr = ctk.CTkEntry(master=self.ob_frame, placeholder_text="Text input")
+        self.pvr.grid(row=7, column=1, pady=(0,5), padx=(10, 10), sticky="ne")
 
         #self.op_frame = ctk.CTkFrame(self)
         #self.op_frame.grid(row=2, column=1, columnspan=2, padx=(10, 20), pady=(10, 20), sticky="nsew")
@@ -103,6 +107,7 @@ class App(ctk.CTk):
         self.ob2.set("Area")
         self.svi.insert("0", "0.852")
         self.ac.insert("0", "cbz")
+        self.pvr.insert("0", '1.0,1.1')
 
 
     # Function to enable/disable "Sep Plot" checkbox based on "Plot" checkbox state
@@ -131,6 +136,9 @@ class App(ctk.CTk):
             vwidthinput = float(self.vwidth_input.get())
             v_start = self.svi.get()
             type_id = self.ac.get()
+            vrange_list = self.pvr.get().split(",")
+            pvmin = float(vrange_list[0])
+            pvmax = float(vrange_list[1])
 
             if self.sep_sheet_cb_var.get():
                 # Separate files into folders based on sheet number
@@ -167,7 +175,9 @@ class App(ctk.CTk):
                     stiffnessinput,
                     vwidthinput,
                     type_id,
-                    v_start
+                    v_start,
+                    pvmin,
+                    pvmax
                 )
 
             if self.tran_cb_var.get():
