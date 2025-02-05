@@ -143,7 +143,7 @@ class App(ctk.CTk):
                         continue
 
                     for file in os.listdir(path):
-                        if file.endswith(".txt") and "_" in file:
+                        if file.endswith(".txt" or ".csv") and "_" in file:
                             parts = file.split("_")
                             if len(parts) > 2:
                                 sheet_number = parts[3]
@@ -242,6 +242,9 @@ class App(ctk.CTk):
     def on_closing(self):
         self.destroy()
         self.quit()
+
+    def showError(error):
+        tkinter.messagebox.showerror("Error", f"An error occurred: {error}")
 
 
 if __name__ == "__main__":

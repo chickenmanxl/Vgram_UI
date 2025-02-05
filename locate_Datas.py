@@ -8,7 +8,7 @@ required_packages = [
     'csaps', 'matplotlib', 'numpy', 'pandas', 'scikit_fda', 
     'scipy', 'scikit-learn', 'joblib', 'multimethod', 'findiff', 
     'rdata', 'fdasrsf', 'dcor', 'numdifftools', 'customtkinter', 
-    'openpyxl'
+    'openpyxl', 'chardet'
 ]
 
 # Collect files from site-packages that match required packages
