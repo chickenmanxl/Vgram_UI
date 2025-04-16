@@ -92,7 +92,7 @@ class App(ctk.CTk):
         # Set default values for all options
         self.sep_plot_cb.configure(state='disabled')
         self.file_path_input.insert("1.0", 'Enter path to folder(s) containing data, one per line. \n')
-        self.file_path_input.insert("2.0", 'Text Files must be named as: \n \"YYYY_MM_DD_<Analyte Code><Concentration>_<Test Number>\"')
+        self.file_path_input.insert("2.0", 'Text Files must be named as: \n \"YYYY_MM_DD_<Condition (optional)>_<Analyte Code><Concentration>_<Test Number>\"')
         self.smooth_input.insert("0", '0.006')
         self.stiff_input.insert("0", '0')
         self.vwidth_input.insert("0", "0.15")
